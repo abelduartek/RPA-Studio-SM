@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RPA_Studio_SM.Core;
+using System.Diagnostics;
 
 namespace RPA_Studio_SM
 {
@@ -18,22 +20,8 @@ namespace RPA_Studio_SM
             FileInfo arquivoConfig = new FileInfo(@"config.txt");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            switch (true)
-            {
-
-                case true when (arquivoConfig.Length <= 0):
-                    Application.Run(new FrmTelaPesquisaDiretorio());
-                    break;
-                case true when (File.Exists(@"config.txt" + "RPAStudio.Wpf.exe.config")):
-                    Application.Run(new FrmTelaPrincipal());
-                    break;
-                default:
-                    Application.Run(new FrmTelaPesquisaDiretorio());
-                    break;
-
-
-            }
+            Application.Run(new FrmTelaPrincipal());
+                   
         }
     }
 }

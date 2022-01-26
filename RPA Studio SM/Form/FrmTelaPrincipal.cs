@@ -27,5 +27,25 @@ namespace RPA_Studio_SM
         {
             AlterarModo.AlterandoModo("Studio");
         }
+
+        private void btnAgentMode_MouseEnter(object sender, EventArgs e)
+        {
+            btnAgentMode.IconColor = System.Drawing.Color.White;
+        }
+
+        private void btnAgentMode_MouseLeave(object sender, EventArgs e)
+        {
+            btnAgentMode.IconColor = System.Drawing.SystemColors.Highlight;
+        }
+
+        private void btnStudioMode_MouseEnter(object sender, EventArgs e)
+        {
+            btnStudioMode.IconColor = System.Drawing.Color.White;
+        }
+
+        private void btnStudioMode_MouseLeave(object sender, EventArgs e)
+        {
+            btnStudioMode.IconColor = System.Drawing.SystemColors.Highlight;
+        }
     }
 }

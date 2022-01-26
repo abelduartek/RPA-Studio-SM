@@ -49,7 +49,7 @@ namespace RPA_Studio_SM
             // btnAgentMode
             // 
             this.btnAgentMode.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgentMode.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgentMode.ForeColor = System.Drawing.Color.White;
             this.btnAgentMode.IconChar = FontAwesome.Sharp.IconChar.UserShield;
             this.btnAgentMode.IconColor = System.Drawing.SystemColors.Highlight;
             this.btnAgentMode.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -62,10 +62,13 @@ namespace RPA_Studio_SM
             this.btnAgentMode.Text = "Agent Mode";
             this.btnAgentMode.UseVisualStyleBackColor = true;
             this.btnAgentMode.Click += new System.EventHandler(this.btnAgentMode_Click);
+            this.btnAgentMode.MouseEnter += new System.EventHandler(this.btnAgentMode_MouseEnter);
+            this.btnAgentMode.MouseLeave += new System.EventHandler(this.btnAgentMode_MouseLeave);
             // 
             // btnStudioMode
             // 
             this.btnStudioMode.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudioMode.ForeColor = System.Drawing.Color.White;
             this.btnStudioMode.IconChar = FontAwesome.Sharp.IconChar.Tools;
             this.btnStudioMode.IconColor = System.Drawing.SystemColors.Highlight;
             this.btnStudioMode.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -78,6 +81,8 @@ namespace RPA_Studio_SM
             this.btnStudioMode.Text = "Studio Mode";
             this.btnStudioMode.UseVisualStyleBackColor = true;
             this.btnStudioMode.Click += new System.EventHandler(this.btnStudioMode_Click);
+            this.btnStudioMode.MouseEnter += new System.EventHandler(this.btnStudioMode_MouseEnter);
+            this.btnStudioMode.MouseLeave += new System.EventHandler(this.btnStudioMode_MouseLeave);
             // 
             // FrmTelaPrincipal
             // 
@@ -88,6 +93,7 @@ namespace RPA_Studio_SM
             this.Controls.Add(this.btnStudioMode);
             this.Controls.Add(this.lblSelectExecutionMode);
             this.Controls.Add(this.btnAgentMode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -12,10 +12,8 @@ namespace RPA_Studio_SM.Core
 	{
         public static void AlterandoModo(string modo)
         {
-            Console.WriteLine("CAMINHO: " + ManipularConfig.retornoCaminho());
-            string caminhoArquivoConfig = ManipularConfig.retornoCaminho() + "RPAStudio.Wpf.exe.config";
+            string caminhoArquivoConfig = GetRPAPath() + @"\RPAStudio.Wpf.exe.config";
             Console.WriteLine(caminhoArquivoConfig);
-
             StreamReader sr = new StreamReader(caminhoArquivoConfig);
             StringBuilder sb = new StringBuilder();
 
@@ -46,15 +44,39 @@ namespace RPA_Studio_SM.Core
             }
             sr.Close();
 
-            StreamWriter sw = new StreamWriter(caminhoArquivoConfig);
-            sw.Write(sb);
+            StreamWriter sw = null;
 
-            sw.Close();
+            try
+            {
+                 sw =  new StreamWriter(caminhoArquivoConfig);
+                 
+            }
+            catch (System.UnauthorizedAccessException e)
+            {
+                MessageBox.Show("Erro! Pasta e arquivos não podem ser modificados!" + Environment.NewLine + "Por gentileza, realizar as permissões de edição do caminho: " + caminhoArquivoConfig);
+            }
+            finally
+            {
+                sw.Write(sb);
+                sw.Close();
+            }
 
-            System.Diagnostics.Process.Start(ManipularConfig.retornoCaminho() + "RPAStudio.Wpf.exe");
-            Application.Exit();
+
+            try
+            {
+                var retorno = System.Diagnostics.Process.Start(AlterarModo.GetRPAPath() + @"\RPAStudio.Wpf.exe");
+            }
+            catch
+            { 
+            }
+            
 
 
+        }
+
+        public static string GetRPAPath() {
+
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86), @"Selbetti Tecnologia S.A\RPA Studio");
         }
 
     }
